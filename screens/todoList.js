@@ -1,10 +1,22 @@
 import * as React from 'react';
-import { StyleSheet,View, Text } from 'react-native';
+import { StyleSheet,View, Text, KeyboardAvoidingView, Platform } from 'react-native';
+import Task from '../components/task';
 
 export default function todoList() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One madafaka</Text>
+
+      <View style={styles.tasksWapper}> 
+        <Text style={styles.sectionTitle}>Today's tasks</Text>
+        <View style={styles.items}>
+          {/* tukaj bodo noti */}
+          <Task text={'Pojdi po mleko'}/>
+          <Task text={'Sprehodi psa'}/>
+          <Task text={'Poji tect'}/>
+        </View>
+        <KeyboardAvoidingView behavior={Platform.OS === "ios"?"padding":"height"} style={styles.CreateTaskWrapper}></KeyboardAvoidingView>
+      </View>
+
     </View>
   );
 }
@@ -12,16 +24,21 @@ export default function todoList() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor : '#F3F4F7',
+    // justifyContent: 'top',
   },
-  title: {
-    fontSize: 20,
+  sectionTitle: {
+    fontSize: 24,
     fontWeight: 'bold',
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  tasksWapper: {
+    paddingTop : 10,
+    paddingHorizontal: 20
   },
+  items: {
+    marginTop :20
+  },
+  CreateTask: {
+
+  }
 });
