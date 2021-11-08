@@ -3,11 +3,6 @@ import {View,Text, StyleSheet, TouchableOpacity} from 'react-native';
 import { back } from 'react-native/Libraries/Animated/Easing';
 
 const Task = (props) =>{
-    const [taskItems,setTaskItems] = useState([]);
-    const DelteTask = ()=>{
-        console.log('tets');
-        setTaskItems([...taskItems,'12345biu sm...']);
-    }
     return (
         <View style={styles.item}>
             <View style={styles.itemLeft}>
